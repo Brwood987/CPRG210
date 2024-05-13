@@ -8,6 +8,75 @@
     <h1>Page is under construction</h1>
 </head>
 <body>
+    <form>
+
+        <!-- creating a text field -->
+    <label for="username">Username:</label>
+    <input type="text" name="username" id="usernameid">
+    <br>
+
+    <label for="password">Password:</label>
+    <input type="password" name="password" id="passwordid">
+    <br>
+
+    <!-- creating a button -->
+    <input type="submit" value="Submit user details">
+    <input type="reset" value="Reset Form">
+
+    <!-- i think this hr creates a line-->
+    <hr>
+
+    <h3>Other types of input tags</h3>
+
+    <!-- Uploading a file -->
+    <label for="">Uploading a file:</label>
+    <input type="file">
+    <br>
+
+    <!-- Select input for dropdown -->
+    <label for="countries">Select your Nationality</label>
+    <select name="countries" id="country">
+        <option value="Canada">Canadian</option>
+        <option value="USA">American</option>
+        <option value="Mexico">Mexican</option>
+        <option value="Brazil">Brazilian</option>
+    </select>
+
+    <!-- Using radio buttons -->
+    <h3>Select your type of payment</h3>
+    <h5>Payment Types:</h5>
+    <input type="radio" name="payment" id="Mastercard">
+    <label for="Mastercard">Mastercard</label>
+    <input type="radio" name="payment" id="Visa">
+    <label for="Visa">Visa</label>
+    <input type="radio" name="payment" id="paypal">
+    <label for="paypal">paypal</label>
+    <input type="radio" name="payment" id="Amex">
+    <label for="Amex">American Express</label>
+    <!-- Name is used to group radio buttons together-->
+    <input type="radio" name="payment1" id="onsite">
+    <label for="onsite">Pay on site</label>
+
+    <p>Select Travel Date:</p>
+    <!-- <input type="date" name="traveldate" id="travel"-->
+    <input type="datetime-local" name="" id="">
+    <input type="datetime" name="" id="">
+
+    <p>Select food Preferences:</p>
+    <label for="Vegetarian">Vegetarian</label>
+    <input type="checkbox" name="food" id="">
+    <label for="Vegan">Vegan</label>
+    <input type="checkbox" name="food" id="">
+    <label for="Lactose-free">Lactose-free</label>
+    <input type="checkbox" name="food" id="">
+    <label for="meat-only">meat-only</label>
+    <input type="checkbox" name="food" id="">
+
+
+    </form>
+    
+    <a href="index.html">Back to homepage</a>
+
     
 </body>
 </html>
