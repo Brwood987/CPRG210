@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Agency Information</title>
+    <link rel="stylesheet" href="styles.css">
+    
+</head>
+
+<body>
+
+    <!--Main agency info-->
+    <div class="contact-section">
+        <h2>Agency Contact Information</h2>
+        <p>Travel Experts</p>
+        <p><ion-icon name="compass-outline"></ion-icon> Address: 123 downtown street, Calgary, AB, Canada</p>
+        <p><ion-icon name="call-outline"></ion-icon> Phone: (123)-222-3333</p>
+        <p><ion-icon name="mail-outline"></ion-icon> Email: contactUs@example.com</p>
+    </div>
+
+    <!--Agent info-->
+    <div class="contact-section">
+        <h2>Individual Agents</h2>
+        <ul>
+            <li>
+                <p>Rob Bob</p>
+                <p class="agent"><ion-icon name="call-outline"></ion-icon> Phone: (123)-234-3456</p>
+                <p class="agent"><ion-icon name="mail-outline"></ion-icon> Email: Bob@example.com</p>
+            </li>
+            <li>
+                <p>Sarah Clark</p>
+                <p class="agent"><ion-icon name="call-outline"></ion-icon> Phone: (444)-555-6666</p>
+                <p class="agent"><ion-icon name="mail-outline"></ion-icon> Email: SarahC@example.com</p>
+            </li>
+            <li>
+                <p>Perry Platypus</p>
+                <p class="agent"><ion-icon name="call-outline"></ion-icon> Phone: (777)-888-9999</p>
+                <p class="agent"><ion-icon name="mail-outline"></ion-icon> Email: agentPerry@example.com</p>
+            </li>
+        </ul>
+    </div>
+
+    <!--Feedback Form-->
+    <div class="feedback-section">
+        <h2>Feedback Form</h2>
+        <form class="feedback-form" action="/submit_feedback" method="POST">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="feedback">Feedback</label>
+            <textarea id="feedback" name="feedback" rows="5" required></textarea>
+            
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <!--Scripts for icons-->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    
+</body>
+</html>

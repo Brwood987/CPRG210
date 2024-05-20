@@ -1,0 +1,193 @@
+
+/*added some padding and lines to break up information*/
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+/*added in some background image formatting for the index page*/
+body.index-page {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('TravelBackground2.jpg') no-repeat center center fixed;
+    background-size: cover; 
+}
+
+/*overlay settings so other images stand out over the background image*/
+.overlay {
+    background: rgba(255, 255, 255, 0.5); /* Semi-transparent overlay */
+    padding: 20px;
+}
+
+/*Contact info formatting*/
+.contact-section {
+    margin-bottom: 20px;
+}
+
+/*Header formatting*/
+h2 {
+    border-bottom: 2px solid #000;
+    padding-bottom: 5px;
+}
+
+/*Unordered list formating*/
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+/*More unordered list formating*/
+ul li {
+    margin-bottom: 10px;
+}
+
+/*agent name*/
+.agent {
+    margin-left: 20px;
+}
+
+/*feeback form*/
+.feedback-form {
+    max-width: 500px;
+    margin: auto;
+}
+
+/*feedback form label*/
+.feedback-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/*feedback form*/
+.feedback-form input, .feedback-form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9; /* Light background color */
+}
+
+/*submit button and make it green*/
+.feedback-form button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/*Changes button on hover*/
+.feedback-form button:hover {
+    background-color: #45a049;
+}
+
+/*travel logo with header next to it*/
+.Logo {
+    display: flex;
+    align-items: center;
+}
+.Logo img {
+    margin-right: 20px;
+    margin-bottom: 50px; 
+}
+
+/*Top 2 photos*/
+.travelPhotos {
+    display: flex;
+    align-items: center;
+}
+.travelPhotos img {
+    width: 300px;
+    height: 300px;
+    margin-right: 20px;
+    margin-bottom: 20px; 
+}
+
+/*Bottom 2 photos with links to other pages*/
+.travelPhotosWithLinks {
+    display: flex;
+    align-items: center;
+}
+.travelPhotosWithLinks img {
+    width: 300px;
+    height: 300px;
+    margin-right: 20px;
+}
+
+/*registration form formatting*/
+.registrationForm {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+/*formatting for labels*/
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+/*formatting for the password field to make it show dots instead of the actual password,
+also some formatting for other text fields */
+input[type="text"],
+input[type="password"],
+select {
+    width: 80%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9; /* Light background color */
+}
+
+/*submit and reset button formatting*/
+input[type="submit"],
+input[type="reset"] {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/*on button hover change color to a slightly darker green*/
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+    background-color: #45a049;
+}
+
+/*Style for the radio buttons in register */
+.radio-group {
+    display: flex;
+    gap: 10px;
+}
+.radio-label {
+    margin-right: 5px;
+}
+
+/*Style for the checkboxes in register */
+.checkbox-group {
+    display: flex;
+    gap: 10px;
+}
+.checkbox-label {
+    margin-right: 5px;
+}
+
+/*make the bottom banner of the index page grey and span across the page*/
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    background-color: #f1f1f1;
+}
