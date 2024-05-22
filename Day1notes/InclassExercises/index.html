@@ -6,42 +6,52 @@
     <title>Class Exercise 1</title>
     <link rel="stylesheet" href="styles.css">
     <script>
+
+        //constants for first array of photos
         document.addEventListener("DOMContentLoaded", function() {
             const images = [
-                { src: "C:\\Users\\Ben\\Documents\\GitHub\\CPRG210\\Day1notes\\InclassExercises\\Travel1.jpg", alt: "TravelPhoto1" },
-                { src: "C:\\Users\\Ben\\Documents\\GitHub\\CPRG210\\Day1notes\\InclassExercises\\Travel2.jpg", alt: "TravelPhoto2" },
-                { src: "C:\\Users\\Ben\\Documents\\GitHub\\CPRG210\\Day1notes\\InclassExercises\\Travel3.jpg", alt: "TravelPhoto3" },
-                { src: "C:\\Users\\Ben\\Documents\\GitHub\\CPRG210\\Day1notes\\InclassExercises\\Travel4.jpg", alt: "TravelPhoto4" },
+                { src: 'Images/Travel5.jpg', alt: "TravelPhoto5" },
+                { src: 'Images/Travel6.jpg', alt: "TravelPhoto6" },
+                { src: 'Images/Travel7.jpg', alt: "TravelPhoto7" },
+                { src: 'Images/Travel8.jpg', alt: "TravelPhoto8" },
             ];
 
+            //descriptions of all the photos
             const descriptions = [
-                "Beautiful landscape of mountains.",
-                "Serene beach at sunset.",
-                "Historic cityscape with a river.",
-                "Modern architecture and city lights.",
+                "Some beutiful city in the USA.",
+                "Building in Budapest.",
+                "Houses in Greece.",
+                "Cruise ship in Sidmouth UK.",
             ];
 
+            //create the table
             const table = document.createElement("table");
 
+            //for each image in the array, assign the src and alt tags,
+            //as well as width and hieght so they are consistent
             images.forEach((image, index) => {
                 const row = document.createElement("tr");
-
                 const imgCell = document.createElement("td");
                 const imgElement = document.createElement("img");
                 imgElement.src = image.src;
                 imgElement.alt = image.alt;
-                imgElement.width = 100;  // Adjust size as needed
-                imgElement.height = 100; // Adjust size as needed
+                imgElement.width = 200;
+                imgElement.height = 200;            
+                //adds the image element to the cell
                 imgCell.appendChild(imgElement);
+                //appends the cell into the table
                 row.appendChild(imgCell);
 
                 const descCell = document.createElement("td");
                 descCell.textContent = descriptions[index];
+                //adds descriptions cell to the table
                 row.appendChild(descCell);
 
+                //appends the rows to the table
                 table.appendChild(row);
             });
 
+            //creates the table in the body
             document.body.appendChild(table);
         });
     </script>
@@ -53,28 +63,122 @@
     <div class="overlay">
             <!--Logo and header-->
         <div class="Logo">
-            <img src="C:\Users\Ben\Documents\GitHub\CPRG210\Day1notes\InclassExercises\PlaneLogo.png" alt="PlaneLogo" width="auto" height="200">
+            <img src='Images/PlaneLogo.png' alt="PlaneLogo" width="auto" height="200">
             <h1>Welcome to Travel Experts</h1>
         </div>
 
         <!--Some travel photos-->
         <div class="travelPhotos">
-            <img src="C:\Users\Ben\Documents\GitHub\CPRG210\Day1notes\InclassExercises\Travel1.jpg" alt="TravelPhoto1">
-            <img src="C:\Users\Ben\Documents\GitHub\CPRG210\Day1notes\InclassExercises\Travel2.jpg" alt="TravelPhoto1">
+            <img src='Images/Travel1.jpg' alt="TravelPhoto1">
+            <img src='Images/Travel2.jpg' alt="TravelPhoto2">
         </div>
 
         <!--Photos with links to other pages-->
         <div class="travelPhotosWithLinks">
-            <a href="contact.html"><img src="C:\Users\Ben\Documents\GitHub\CPRG210\Day1notes\InclassExercises\Travel3.jpg"></a>
-            <a href="register.html"><img src="C:\Users\Ben\Documents\GitHub\CPRG210\Day1notes\InclassExercises\Travel4.jpg"></a>
+            <a href="contact.html"><img src='Images/Travel3.jpg'></a>
+            <a href="register.html"><img src='Images/Travel4.jpg'></a>
         </div>
+
+        <!--GIF element -->
+        <img id="bouncingGif" class="bouncing" src="Images/pedro-racoon.gif" alt="Bouncing GIF">
+        
+        <!--Mouseover for gif-->
+        <div id="tooltip" class="tooltip rainbow-text">Click me for a fun suprise!</div>
 
         <!-- Table and image display div -->
         <table></table>
         <div class="image-display"></div>
 
+        <!--Second image array-->
+        <div class="image-array" id="imagesArray"></div>
+
+        <script>
+            // Variables for images and URLs
+            const images = [
+                { src: 'Images/TravelNewYork.jpg', url: 'https://www.cntraveler.com/destinations/new-york-city' },
+                { src: 'Images/TravelAustralia.jpg', url: 'https://www.australia.com/en-ca' },
+                { src: 'Images/TravelTokyo.jpg', url: 'https://www.gotokyo.org/en/index.html' },
+                { src: 'Images/TravelUK.jpg', url: 'https://www.visitbritain.com/en' },
+            ];
+    
+            // Initialize the container for the images
+            const container = document.getElementById('imagesArray');
+    
+            // For each image create a link to the URL and create the image
+            images.forEach(image => {
+                const link = document.createElement('a');
+                link.href = image.url;
+                link.target = '_blank';
+    
+                const img = document.createElement('img');
+                img.src = image.src;
+                img.alt = 'Image';
+    
+                // Adds the links and images to the array
+                link.appendChild(img);
+                container.appendChild(link);
+            });
+    
+            // Bouncing GIF functionality
+            const bouncingGif = document.getElementById('bouncingGif');
+            const tooltip = document.getElementById('tooltip');
+            let intervalId;
+            let dx = 2; // Horizontal speed
+            let dy = 2; // Vertical speed
+
+            // Show tooltip on mouseover
+            bouncingGif.addEventListener('mouseover', (event) => {
+                tooltip.style.display = 'block';
+                tooltip.style.left = `${event.pageX + 10}px`;
+                tooltip.style.top = `${event.pageY + 10}px`;
+            });
+
+            // Hide tooltip on mouseout
+            bouncingGif.addEventListener('mouseout', () => {
+                tooltip.style.display = 'none';
+            });
+
+            // Move the tooltip with the mouse
+            bouncingGif.addEventListener('mousemove', (event) => {
+                tooltip.style.left = `${event.pageX + 10}px`;
+                tooltip.style.top = `${event.pageY + 10}px`;
+            });
+
+            bouncingGif.addEventListener('click', () => {
+                if (!intervalId) {
+                    intervalId = setInterval(moveGif, 10); // Move every 10ms for smoother animation
+                }
+            });
+
+            function moveGif() {
+                const maxWidth = window.innerWidth - bouncingGif.width;
+                const maxHeight = window.innerHeight - bouncingGif.height;
+
+                // Get current position
+                let x = bouncingGif.offsetLeft;
+                let y = bouncingGif.offsetTop;
+
+                // Update position
+                x += dx;
+                y += dy;
+
+                // Check for collision with edges and reverse direction if needed
+                if (x <= 0 || x >= maxWidth) {
+                    dx *= -1; // Reverse horizontal direction
+                }
+                if (y <= 0 || y >= maxHeight) {
+                    dy *= -1; // Reverse vertical direction
+                }
+
+                // Set new position
+                bouncingGif.style.left = `${x}px`;
+                bouncingGif.style.top = `${y}px`;
+        }
+        </script>
+
         <!-- Whitespace div -->
         <div class="whitespace"></div>
+
     </div>
 </body>
     

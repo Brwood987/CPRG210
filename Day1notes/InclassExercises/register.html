@@ -63,7 +63,7 @@
         }
 
         //Validate postal code
-        //not working?
+        //not working? not sure how to test this
         const postalCodeInput = form.querySelector('postalCode');
         const postalCodeRegex = /^[A-Z]\d[A-Z] ?\d[A-Z]\d$/;
         if (!postalCodeRegex.test(postalCodeInput.value.trim())) {
@@ -107,7 +107,6 @@
         <!-- Payment Types -->
         <h3>Select your type of payment</h3>
         <h4>Payment Types:</h4>
-
         <div class="radio-group">
             <input type="radio" name="payment" id="Mastercard" required>
             <label for="Mastercard">Mastercard</label>
