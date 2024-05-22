@@ -5,6 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Class Exercise 1</title>
     <link rel="stylesheet" href="styles.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const images = [
+                { src: "C:\\Users\\Ben\\Documents\\GitHub\\CPRG210\\Day1notes\\InclassExercises\\Travel1.jpg", alt: "TravelPhoto1" },
+                { src: "C:\\Users\\Ben\\Documents\\GitHub\\CPRG210\\Day1notes\\InclassExercises\\Travel2.jpg", alt: "TravelPhoto2" },
+                { src: "C:\\Users\\Ben\\Documents\\GitHub\\CPRG210\\Day1notes\\InclassExercises\\Travel3.jpg", alt: "TravelPhoto3" },
+                { src: "C:\\Users\\Ben\\Documents\\GitHub\\CPRG210\\Day1notes\\InclassExercises\\Travel4.jpg", alt: "TravelPhoto4" },
+            ];
+
+            const descriptions = [
+                "Beautiful landscape of mountains.",
+                "Serene beach at sunset.",
+                "Historic cityscape with a river.",
+                "Modern architecture and city lights.",
+            ];
+
+            const table = document.createElement("table");
+
+            images.forEach((image, index) => {
+                const row = document.createElement("tr");
+
+                const imgCell = document.createElement("td");
+                const imgElement = document.createElement("img");
+                imgElement.src = image.src;
+                imgElement.alt = image.alt;
+                imgElement.width = 100;  // Adjust size as needed
+                imgElement.height = 100; // Adjust size as needed
+                imgCell.appendChild(imgElement);
+                row.appendChild(imgCell);
+
+                const descCell = document.createElement("td");
+                descCell.textContent = descriptions[index];
+                row.appendChild(descCell);
+
+                table.appendChild(row);
+            });
+
+            document.body.appendChild(table);
+        });
+    </script>
 </head>
 
 <body class="index-page">
@@ -28,10 +68,16 @@
             <a href="contact.html"><img src="C:\Users\Ben\Documents\GitHub\CPRG210\Day1notes\InclassExercises\Travel3.jpg"></a>
             <a href="register.html"><img src="C:\Users\Ben\Documents\GitHub\CPRG210\Day1notes\InclassExercises\Travel4.jpg"></a>
         </div>
-    </div>
-    
-</body>
 
+        <!-- Table and image display div -->
+        <table></table>
+        <div class="image-display"></div>
+
+        <!-- Whitespace div -->
+        <div class="whitespace"></div>
+    </div>
+</body>
+    
 <footer>
     <!--Copyright info-->
     &copy; Property of Ben Wood 2024 and SAIT. Images are from unsplash. All rights reserved.

@@ -8,16 +8,28 @@ body {
 /*added in some background image formatting for the index page*/
 body.index-page {
     font-family: Arial, sans-serif;
-    margin: 0;
+    margin: 10;
+    margin-bottom: 200px;
     padding: 0;
     background: url('TravelBackground2.jpg') no-repeat center center fixed;
     background-size: cover; 
 }
 
 /*overlay settings so other images stand out over the background image*/
+body.index-page::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.5);
+    z-index: -1; /* Ensure the transparency layer is behind the content */
+}
+
+/*overlay settings so other images stand out over the background image*/
 .overlay {
-    background: rgba(255, 255, 255, 0.5); /* Semi-transparent overlay */
-    padding: 20px;
+    position: relative;
 }
 
 /*Contact info formatting*/
@@ -182,12 +194,26 @@ input[type="reset"]:hover {
     margin-right: 5px;
 }
 
+/*Creating some whitespace at the bottom of the page*/
+.whitespace {
+    margin-bottom: 50px;
+}
+
+/* Styling for field descriptions */
+.field-description {
+    display: none;
+    margin-top: 5px;
+    font-style: italic;
+    color: #666;
+}
+
 /*make the bottom banner of the index page grey and span across the page*/
 footer {
     position: fixed;
     bottom: 0;
+    left: 0;
     width: 100%;
-    text-align: center;
-    padding: 10px 0;
+    text-align: center; 
+    padding: 10px;
     background-color: #f1f1f1;
 }
