@@ -19,6 +19,9 @@ app.use(express.static("views", {
 //allows express to access the public folder
 app.use(express.static("public"));
 
+app.post("/endpoint", (req, res) => {
+    console.log(req.body);
+});
 
 app.use(checkNotFound);
 
