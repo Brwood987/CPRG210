@@ -1,0 +1,54 @@
+doctype html
+head
+	meta(charset='UTF-8')
+	meta(name='viewport' content='width=device-width, initial-scale=1.0')
+	meta(http-equiv='X-UA-Compatible' content='ie=edge')
+	link(rel='stylesheet', href='style.css')
+	title #{pagetitle}
+h1#title Home (Pug)
+h2.subtitle This is our homepage.
+
+h3= username
+h3 #{username}
+
+h3 #{greeting}
+
+each greeting in greetings
+	h4= greeting
+
+br
+img(src='img/alexander-grey-8lnbXtxFGZw-unsplash.jpg', width='100')
+img(src='img/markus-spiske-iar-afB0QQw-unsplash.jpg', width='100')
+img(src='img/taopaodao-EgL0EtzL0Wc-unsplash.jpg', width='100')
+img(src='img/viktor-forgacs-3PyBkxgTiL0-unsplash.jpg', width='100')
+br
+audio(src='snd/4-The-Elements.mp3', controls)
+br
+
+nav
+	b Nav Bar
+	ul
+		li
+			a.nav-link(href='/about') About
+		li
+			a.nav-link(href='/contact') Contact
+		li
+			a.nav-link(href='/create-post' title="Create Post") Create Post
+
+b Template Engines
+br
+a(href='https://pugjs.org') PUG
+br
+a(href='https://ejs.co') EJS
+br
+b Useful Tools
+br
+a(href='https://www.postman.com') Postman
+br
+a(href='https://swagger.io') Swagger
+br
+b Class Notes
+br
+a(href='https://stackoverflow.com/questions/26346917/why-use-x-ua-compatible-ie-edge-anymore') Re: "meta http-equiv X-UA-Compatible IE=edge"
+br
+a(href='https://www.smashingmagazine.com/2023/12/new-css-viewport-units-not-solve-classic-scrollbar-problem') Re: When 100vw != Screen Width

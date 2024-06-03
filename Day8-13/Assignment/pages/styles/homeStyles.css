@@ -6,29 +6,26 @@ body {
 }
 
 .header-container {
-    display: flex;
-    align-items: center;
+    text-align: center;
     padding: 20px 0;
     background-color: #000;
     color: #FFD700;
-    padding-left: 10%;
-    position: relative;
 }
 
 .logo {
     width: 200px;
-    margin-right: 20px;
 }
 
 .band-name {
-    padding-left: 175px;
+    text-align: center;
     font-size: 4em;
     font-weight: bold;
     margin: 0;
 }
 
 .container {
-    width: 80%;
+    text-align: center;
+    width: 60%;
     margin: 0 auto;
 }
 
@@ -47,7 +44,8 @@ section {
 
 
 .nav-links {
-    align-items: center center;
+    padding-top: 50px;
+    text-align: center;
 }
 
 .nav-links a {

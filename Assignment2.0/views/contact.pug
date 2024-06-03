@@ -1,0 +1,47 @@
+doctype html
+head
+	meta(charset='UTF-8')
+	meta(name='viewport' content='width=device-width, initial-scale=1.0')
+	meta(http-equiv='X-UA-Compatible' content='ie=edge')
+	title Contact
+h1#title Contact (Pug)
+h2.subtitle This is our contact page.
+
+b Columns/Fields in Agent Table:
+ul
+	each field in Object.keys(agents[0])
+		li= field
+
+b List of Agents using two equivalent interpolation syntaxes:
+ul
+	each agent in agents
+		li= agent.AgtFirstName + " " + agent.AgtLastName
+		li #{agent.AgtFirstName} #{agent.AgtLastName}
+b List of Agent Values By Row:
+ul
+	each agent in agents
+		li= Object.values(agent)
+
+b List of Agents with Sublist of Fields:
+ol
+	each agent in agents
+		li
+			ul
+				each field in Object.keys(agent)
+					li= field + ": " + agent[field]
+
+b Using Object Members...
+ol
+	each agent in agents
+		li
+			b Name: 
+			| #{agent.AgtFirstName} #{agent.AgtMiddleInitial} #{agent.AgtLastName}
+			br
+			b Phone: 
+			| #{agent.AgtBusPhone}
+
+b Using PUG Include...
+ol
+	each agent in agents
+		li
+			include contactcard.pug
