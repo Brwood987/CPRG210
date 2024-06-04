@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit User</title>
+    <link rel="stylesheet" href="/styles/registrationStyles.css">
+</head>
+<body>
+    <form action="/update/<%= user.id %>" method="POST" class="registrationForm">
+
+        <!-- Username and Password -->
+        <h2>Account information</h2>
+        <label for="username">Username:</label>
+        <input type="text" name="username" id="usernameid" value="<%= user.username %>" required>
+        <br>
+
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="passwordid" value="<%= user.password %>" required>
+        <br>
+
+        <hr>
+
+        <!-- Nationality -->
+        <label for="countries">Select your Nationality</label>
+        <select name="countries" id="country" required>
+            <option value="Canada" <%= user.nationality === 'Canada' ? 'selected' : '' %>>Canadian</option>
+            <option value="USA" <%= user.nationality === 'USA' ? 'selected' : '' %>>American</option>
+            <option value="Mexico" <%= user.nationality === 'Mexico' ? 'selected' : '' %>>Mexican</option>
+            <option value="Brazil" <%= user.nationality === 'Brazil' ? 'selected' : '' %>>Brazilian</option>
+            <option value="NA" <%= user.nationality === 'NA' ? 'selected' : '' %>>Prefer not to specify</option>
+        </select>
+
+        <!-- Payment Types -->
+        <h3>Select your type of payment</h3>
+        <h4>Payment Types:</h4>
+        <div class="radio-group">
+            <input type="radio" name="payment" value="Mastercard" id="Mastercard" <%= user.payment_type === 'Mastercard' ? 'checked' : '' %> required>
+            <label for="Mastercard">Mastercard</label>
+            <input type="radio" name="payment" value="Visa" id="Visa" <%= user.payment_type === 'Visa' ? 'checked' : '' %>>
+            <label for="Visa">Visa</label>
+            <input type="radio" name="payment" value="paypal" id="paypal" <%= user.payment_type === 'paypal' ? 'checked' : '' %>>
+            <label for="paypal">paypal</label>
+            <input type="radio" name="payment" value="Amex" id="Amex" <%= user.payment_type === 'Amex' ? 'checked' : '' %>>
+            <label for="Amex">American Express</label>
+            <input type="radio" name="payment" value="onsite" id="onsite" <%= user.payment_type === 'onsite' ? 'checked' : '' %>>
+            <label for="onsite">Pay on site</label>
+        </div>
+        <hr>
+
+        <!-- Travel Date -->
+        <h4>Select Travel Date:</h4>
+        <input type="datetime-local" name="traveldate" id="traveldate" value="<%= new Date(user.travel_date).toISOString().slice(0,16) %>" required>
+
+        <hr>
+
+        <!-- Food Preferences -->
+        <h4>Select food Preferences:</h4>
+        <div class="checkbox-group">
+            <label for="Vegetarian">Vegetarian</label>
+            <input type="checkbox" name="food" value="Vegetarian" id="vegetarian" <%= user.food_preferences.includes('Vegetarian') ? 'checked' : '' %>>
+            <label for="Vegan">Vegan</label>
+            <input type="checkbox" name="food" value="Vegan" id="vegan" <%= user.food_preferences.includes('Vegan') ? 'checked' : '' %>>
+            <label for="Lactose-free">Lactose-free</label>
+            <input type="checkbox" name="food" value="Lactose-free" id="lactosefree" <%= user.food_preferences.includes('Lactose-free') ? 'checked' : '' %>>
+            <label for="meat-only">Meat-only</label>
+            <input type="checkbox" name="food" value="meat-only" id="meatonly" <%= user.food_preferences.includes('meat-only') ? 'checked' : '' %>>
+            <label for="no-preference">Prefer not to say</label>
+            <input type="checkbox" name="food" value="no-preference" id="preferNotToSay" <%= user.food_preferences.includes('no-preference') ? 'checked' : '' %>>
+        </div>
+
+        <hr>
+
+        <!-- Name, Address, City, Province, Postal Code -->
+        <h3>Enter your information</h3>
+        <label for="fName">First Name:</label>
+        <input type="text" name="fName" id="fName" value="<%= user.first_name %>" required>
+        <br>
+
+        <label for="lName">Last Name:</label>
+        <input type="text" name="lName" id="lName" value="<%= user.last_name %>" required>
+        <br>
+
+        <label for="address">Address:</label>
+        <input type="text" name="address" id="address" value="<%= user.address %>" required>
+        <br>
+
+        <label for="city">City:</label>
+        <input type="text" name="city" id="city" value="<%= user.city %>" required>
+        <br>
+
+        <label for="province">Province:</label>
+        <input type="text" name="province" id="province" value="<%= user.province %>" required>
+        <br>
+
+        <label for="postalCode">Postal Code:</label>
+        <input type="text" name="postalCode" id="postalCode" value="<%= user.postal_code %>" required>
+        <br>
+
+        <!-- Submit Button -->
+        <input type="submit" value="Update user details">
+    </form>
+
+    <!-- Link back to the main page -->
+    <a href="/index">Back to homepage</a>
+</body>
+</html>

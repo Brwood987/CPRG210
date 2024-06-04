@@ -20,7 +20,7 @@ con.on('error', function (connection) {
 con.connect(function(err) {
 	if (err) throw err;
 	console.log("Connected!");
-	var user = "Robert'; DROP TABLE packages_products_suppliers;SELECT * FROM customers WHERE custfirstname LIKE 'A%";
+	//var user = "Robert'; DROP TABLE packages_products_suppliers;SELECT * FROM customers WHERE custfirstname LIKE 'A%";
 	//var user = "Monica";
 	var sql = "SELECT * FROM customers WHERE custprov=? AND custcity=? AND custcountry=?";
 	console.log("SQL: "+sql);

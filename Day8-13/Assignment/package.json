@@ -9,6 +9,7 @@
   "author": "Ben Wood",
   "license": "ISC",
   "dependencies": {
+    "ejs": "^3.1.10",
     "express": "^4.19.2",
     "nodemon": "^3.1.1",
     "pug": "^3.0.3"

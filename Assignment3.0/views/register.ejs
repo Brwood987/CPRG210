@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <link rel="stylesheet" href="styles/registrationStyles.css">
+    <!--Scripts for confirmations-->
+    <script>
+        // Function to display a confirmation message when the submit button is pressed
+        function confirmSubmit() {
+            return confirm("Are you sure you want to submit the form?");
+        }
+
+        // Function to display a reset message when the reset button is pressed
+        function confirmReset() {
+            return confirm("Are you sure you want to reset the form?");
+        }
+
+        // Function to display field descriptions
+        function displayDescription(fieldId) {
+            // Hide all descriptions first
+            const descriptions = document.querySelectorAll('.field-description');
+            descriptions.forEach(description => {
+                description.style.display = 'none';
+            });
+
+            // Show the description for the specified field
+            const fieldDescription = document.querySelector(`#${fieldId}-description`);
+            if (fieldDescription) {
+                fieldDescription.style.display = 'block';
+            }
+        }
+
+        // Add event listener for form submission validation
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const form = document.getElementById('registrationForm');
+            form.addEventListener('submit', function(event) {
+                const inputs = form.querySelectorAll('input[required], select[required]');
+                let isValid = true;
+                inputs.forEach(function(input) {
+                    if (!input.value.trim()) {
+                        isValid = false;
+                        input.style.border = '1px solid red';
+                    } else {
+                        input.style.border = '';
+                    }
+                });
+
+                if (!isValid) {
+                    event.preventDefault();
+                    alert('Please fill out all required fields.');
+                }
+
+                // Validate postal code
+                const postalCodeInput = form.querySelector('#postalCode');
+                const postalCodeRegex = /^[A-Z]\d[A-Z] ?\d[A-Z]\d$/;
+                if (!postalCodeRegex.test(postalCodeInput.value.trim())) {
+                    event.preventDefault();
+                    alert('Please enter a valid postal code (e.g., A1A 1A1).');
+                    postalCodeInput.style.border = '1px solid red';
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <form id="registrationForm" class="registrationForm" action="/submit_registration" method="post" onsubmit="return confirmSubmit()" onreset="return confirmReset()">
+
+        <!-- Username and Password -->
+        <h2>Account information</h2>
+        <label for="username">Username:</label>
+        <input type="text" name="username" id="usernameid" onfocus="displayDescription('username')" required>
+        <p class="field-description" id="username-description">Enter your desired username.</p>
+        <br>
+
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="passwordid" onfocus="displayDescription('password')" required>
+        <p class="field-description" id="password-description">Please choose a strong password with at least 8 characters.</p>
+        <br>
+
+        <hr>
+
+        <!-- Nationality -->
+        <label for="countries">Select your Nationality</label>
+        <select name="countries" id="country" onfocus="displayDescription('countries')" required>
+            <option value="Canada">Canadian</option>
+            <option value="USA">American</option>
+            <option value="Mexico">Mexican</option>
+            <option value="Brazil">Brazilian</option>
+            <option value="NA">Prefer not to specify</option>
+        </select>
+        <p class="field-description" id="countries-description">Please select one of the options.</p>
+
+        <!-- Payment Types -->
+        <h3>Select your type of payment</h3>
+        <h4>Payment Types:</h4>
+        <div class="radio-group">
+            <input type="radio" name="payment" id="Mastercard" value="Mastercard" required>
+            <label for="Mastercard">Mastercard</label>
+            <input type="radio" name="payment" id="Visa" value="Visa">
+            <label for="Visa">Visa</label>
+            <input type="radio" name="payment" id="paypal" value="Paypal">
+            <label for="paypal">Paypal</label>
+            <input type="radio" name="payment" id="Amex" value="American Express">
+            <label for="Amex">American Express</label>
+            <input type="radio" name="payment" id="onsite" value="Onsite">
+            <label for="onsite">Pay on site</label>
+        </div>
+        <hr>
+
+        <!-- Travel Date -->
+        <h4>Select Travel Date:</h4>
+        <input type="datetime-local" name="traveldate" id="traveldate" onfocus="displayDescription('traveldate')" required>
+        <p class="field-description" id="traveldate-description">Please enter a departure date.</p>
+
+        <hr>
+
+        <!-- Food Preferences -->
+        <h4>Select food Preferences:</h4>
+        <div class="checkbox-group">
+            <label for="vegetarian">Vegetarian</label>
+            <input type="checkbox" name="food[]" id="vegetarian" value="Vegetarian">
+            <label for="vegan">Vegan</label>
+            <input type="checkbox" name="food[]" id="vegan" value="Vegan">
+            <label for="lactosefree">Lactose-free</label>
+            <input type="checkbox" name="food[]" id="lactosefree" value="Lactose-free">
+            <label for="meatonly">Meat-only</label>
+            <input type="checkbox" name="food[]" id="meatonly" value="Meat-only">
+            <label for="preferNotToSay">Prefer not to say</label>
+            <input type="checkbox" name="food[]" id="preferNotToSay" value="Prefer not to say">
+        </div>
+
+        <hr>
+
+        <!-- Name, Address, City, Province, Postal Code -->
+
+        <h3>Enter your information</h3>
+        <label for="fName">First Name:</label>
+        <input type="text" name="fName" id="fName" onfocus="displayDescription('fName')" required>
+        <p class="field-description" id="fName-description">Please enter your first name.</p>
+        <br>
+
+        <label for="lName">Last Name:</label>
+        <input type="text" name="lName" id="lName" onfocus="displayDescription('lName')" required>
+        <p class="field-description" id="lName-description">Please enter your last name.</p>
+        <br>
+
+        <label for="address">Address:</label>
+        <input type="text" name="address" id="address" onfocus="displayDescription('address')" required>
+        <p class="field-description" id="address-description">Please enter your address.</p>
+        <br>
+
+        <label for="city">City:</label>
+        <input type="text" name="city" id="city" onfocus="displayDescription('city')" required>
+        <p class="field-description" id="city-description">Please enter the city where you currently reside.</p>
+        <br>
+
+        <label for="province">Province:</label>
+        <input type="text" name="province" id="province" onfocus="displayDescription('province')" required>
+        <p class="field-description" id="province-description">Please enter the province you live in.</p>
+        <br>
+
+        <label for="postalCode">Postal Code:</label>
+        <input type="text" name="postalCode" id="postalCode" onfocus="displayDescription('postalCode')" required>
+        <p class="field-description" id="postalCode-description">Please enter your postal code.</p>
+        <br>
+
+        <!-- Submit and Reset Buttons -->
+        <input type="submit" value="Submit user details">
+        <input type="reset" value="Reset Form">
+    </form>
+    
+    <!-- Link back to the main page -->
+    <a href="/index">Back to homepage</a>
+</body>
+</html>

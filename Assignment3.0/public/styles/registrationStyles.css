@@ -1,0 +1,71 @@
+/*registration form formatting*/
+.registrationForm {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+/*formatting for labels*/
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+/*formatting for the password field to make it show dots instead of the actual password,
+also some formatting for other text fields */
+input[type="text"],
+input[type="password"],
+select {
+    width: 80%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9; /* Light background color */
+}
+
+/*submit and reset button formatting*/
+input[type="submit"],
+input[type="reset"] {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/*on button hover change color to a slightly darker green*/
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+    background-color: #45a049;
+}
+
+/*Style for the radio buttons in register */
+.radio-group {
+    display: flex;
+    gap: 10px;
+}
+.radio-label {
+    margin-right: 5px;
+}
+
+/*Style for the checkboxes in register */
+.checkbox-group {
+    display: flex;
+    gap: 10px;
+}
+.checkbox-label {
+    margin-right: 5px;
+}
+
+/* Styling for field descriptions */
+.field-description {
+    display: none;
+    margin-top: 5px;
+    font-style: italic;
+    color: #666;
+}

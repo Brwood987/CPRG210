@@ -4,8 +4,8 @@ const path = require("path");
 const port = 8000;
 
 // Set the view engine to Pug
-app.set('view engine', 'pug');
-app.set('pages', path.join(__dirname, 'pages'));
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'public'));
 
 app.listen(port, () => {
     console.log("Server is listening on port " + port + ". Ready to accept requests.");

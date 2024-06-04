@@ -1,0 +1,16 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>agent data</title>
+    <link rel="stylesheet" href="styles/userData.css">
+</head>
+<body>
+    <% results.forEach((result) => { %>
+        <div class="agent-card">
+            <div class="agent-name"><%= result.AgtFirstName %></div>
+            <div class="agent-phone"><%= result.AgtBusPhone %></div>
+        </div>
+    <% }) %>
+</body>
+</html>
